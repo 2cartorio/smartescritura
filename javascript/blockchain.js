@@ -23,16 +23,15 @@ function valorDepositado() {
 
 
 
-function buscaStatusContrato() {
-    var status;
-    var campoStatus = document.getElementById("campoStatus");     
-    contrato.statusPagamentoAluguel()
+function vendedor() {
+    var campoVendedor = document.getElementById("campoVendedor");     
+    contrato.vendedor()
     .then( (resultado) => {
-        campoStatus.innerHTML = resultado;
+        campoVendedor.innerHTML = resultado;
     })
     .catch( (err) => {
         console.error(err);
-        campoStatus.innerHTML = err;
+        campoVendedor.innerHTML = err;
     });
 
 
