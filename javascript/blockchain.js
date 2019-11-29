@@ -24,12 +24,13 @@ function valorDepositado() {
 
 
 function vendedor() {
-    var boxVendedor = document.getElementById("BoxVendedor");  
+    var vendedors;
+    var campoVendedor = document.getElementById("campoVendedor");  
     console.log("vendedor - submitting the request");
     contract.vendedor()
      .then( (resultFromContract) => {
         console.log("vendedor - result is", resultFromContract);
-        boxVendedor.innerHTML = resultFromContract;
+        campoVendedor.innerHTML = resultFromContract;
     })
     .catch( (err) => {
         console.error(err);
