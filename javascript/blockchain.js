@@ -39,8 +39,38 @@ function buscaStatusContrato() {
 
 
 
+function Assinar() {
+    var textoCampo = document.frmStatus.txtStatusPagamentoAluguel.value;
+    var caixaStatusTx = document.getElementById("caixaStatusTx");
+    if (textoCampo.length === 8) {
+        caixaStatusTx.innerHTML = "Enviando transação...";
+        contrato.Assinar(textoCampo)
+        .then( (transacao) => {
+            console.log("registrarMudancaStatus - Transacao ", transacao);   
+            caixaStatusTx.innerHTML = "Transação enviada. Aguardando processamento...";
+            transacao.wait()
+            .then( (resultado) => {
+                buscaStatusContrato();
+                caixaStatusTx.innerHTML = "Transação realizada.";
+            })        
+            .catch( (err) => {
+                console.error("registrarMudancaStatus - Aguardando tx ser minerada");
+                console.error(err);
+                caixaStatusTx.innerHTML = "Algo saiu errado: " + err.message;
+            })
+        })
+        .catch( (err) => {
+            console.error("registrarMudancaStatus");
+            console.error(err);
+            caixaStatusTx.innerHTML = "Algo saiu errado: " + err.message;
+        })
+    }
+}
 
-
+    
+    
+    
+    
 
 
 
