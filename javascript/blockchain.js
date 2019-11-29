@@ -24,65 +24,21 @@ function valorDepositado() {
 
 
 function vendedor() {
-    var campoVendedor = document.getElementById("campoVendedor");     
-    contrato.vendedor()
-    .then( (resultado) => {
-        campoVendedor.innerHTML = resultado;
+    var boxVendedor = document.getElementById("BoxVendedor");  
+    console.log("vendedor - submitting the request");
+    contract.vendedor()
+     .then( (resultFromContract) => {
+        console.log("vendedor - result is", resultFromContract);
+        boxVendedor.innerHTML = resultFromContract;
     })
     .catch( (err) => {
         console.error(err);
-        campoVendedor.innerHTML = err;
+        alert("A screen will be load asking to allow this page to connect with your Ethereum account.\nPlease give this permission to proceed.\nOr if you don't have an Ethereum account please install Metamask");
+        ethereum.enable();
+        alert("After you give the permission we are going to reload the page");
+        document.location = "index.html";
     });
-
-
-
-
-
-
-
-
-
-
-
-
-function registrarMudancaStatus() {
-    var textoCampo = document.frmStatus.txtStatusPagamentoAluguel.value;
-    var caixaStatusTx = document.getElementById("caixaStatusTx");
-    if (textoCampo.length === 8) {
-        caixaStatusTx.innerHTML = "Enviando transação...";
-        contrato.mudaStatusPagamento(textoCampo)
-        .then( (transacao) => {
-            console.log("registrarMudancaStatus - Transacao ", transacao);   
-            caixaStatusTx.innerHTML = "Transação enviada. Aguardando processamento...";
-            transacao.wait()
-            .then( (resultado) => {
-                buscaStatusContrato();
-                caixaStatusTx.innerHTML = "Transação realizada.";
-            })        
-            .catch( (err) => {
-                console.error("registrarMudancaStatus - Aguardando tx ser minerada");
-                console.error(err);
-                caixaStatusTx.innerHTML = "Algo saiu errado: " + err.message;
-            })
-        })
-        .catch( (err) => {
-            console.error("registrarMudancaStatus");
-            console.error(err);
-            caixaStatusTx.innerHTML = "Algo saiu errado: " + err.message;
-        })
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
