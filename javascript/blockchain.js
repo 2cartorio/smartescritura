@@ -34,11 +34,11 @@ function AssinarPagar() {
     }; 
     contract.pay(motivation, additionalSettings)
     .then( (tx) => {
-        console.log("executePayment - Transaction ", tx);   
+        console.log("AssinarPagar - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
         tx.wait()
         .then( (resultFromContract) => {
-            console.log("executePayment - the result was ", resultFromContract);
+            console.log("AssinarPagar - the result was ", resultFromContract);
             valorDepositado();
             boxCommStatus.innerHTML = "Transaction executed.";
         })        
