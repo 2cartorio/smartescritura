@@ -23,31 +23,6 @@ function valorDepositado() {
 
 
 
-function vendedor() {
-    var vendedor;
-    var campoVendedor = document.getElementById("campoVendedor");  
-    console.log("vendedor - submitting the request");
-    contract.vendedor()
-     .then( (resultFromContract) => {
-        console.log("vendedor - result is", resultFromContract);
-        campoVendedor.innerHTML = resultFromContract;
-    })
-    .catch( (err) => {
-        console.error(err);
-        alert("A screen will be load asking to allow this page to connect with your Ethereum account.\nPlease give this permission to proceed.\nOr if you don't have an Ethereum account please install Metamask");
-        ethereum.enable();
-        alert("After you give the permission we are going to reload the page");
-        document.location = "index.html";
-    });
-}
-
-
-
-
-
-
-
-
 function executePayment() {
     var amount = document.frmPayment.amount.value;       
     if (amount<1000000000) {
