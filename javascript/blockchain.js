@@ -21,6 +21,33 @@ function valorDepositado() {
     });
 }
 
+
+
+function buscaStatusContrato() {
+    var status;
+    var campoStatus = document.getElementById("campoStatus");     
+    contrato.statusPagamentoAluguel()
+    .then( (resultado) => {
+        campoStatus.innerHTML = resultado;
+    })
+    .catch( (err) => {
+        console.error(err);
+        campoStatus.innerHTML = err;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function AssinarPagar() {
     var amount = document.frmPayment.amount.value;       
     if (amount<1000000000) {
