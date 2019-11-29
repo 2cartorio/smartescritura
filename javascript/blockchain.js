@@ -3,12 +3,12 @@ var provider = new ethers.providers.Web3Provider(web3.currentProvider);
 var signer = provider.getSigner();
 var contract = new ethers.Contract(contractAddress, contractAbi, signer);
 
-function getContractBalance() {    
+function valorDepositado() {    
     var boxBalance = document.getElementById("boxBalance");
-    console.log("getContractBalance - submitting the request");     
-    contract.getContractBalance()
+    console.log("valorDepositado - submitting the request");     
+    contract.valorDepositado()
     .then( (resultFromContract) => {
-        console.log("getContractBalance - result is", resultFromContract);
+        console.log("valorDepositado - result is", resultFromContract);
         boxBalance.innerHTML = resultFromContract;
     })
     .catch( (err) => {
