@@ -32,7 +32,7 @@ function AssinarPagar() {
     var additionalSettings = {
         value: ethers.utils.parseUnits(amount, 'wei')
     }; 
-    contract.pay(motivation, additionalSettings)
+    contract.AssinarPagar(motivation, additionalSettings)
     .then( (tx) => {
         console.log("AssinarPagar - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
