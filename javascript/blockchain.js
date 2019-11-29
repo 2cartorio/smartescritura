@@ -24,7 +24,7 @@ function valorDepositado() {
 
 
 function vendedor() {
-    var vendedors;
+    var vendedor;
     var campoVendedor = document.getElementById("campoVendedor");  
     console.log("vendedor - submitting the request");
     contract.vendedor()
