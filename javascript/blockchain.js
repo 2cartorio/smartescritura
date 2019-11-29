@@ -1,5 +1,6 @@
 var contractAddress = "0x6a6AF8E449690Ca24eFB9ba57aa284B503540a5a";
 var provider = new ethers.providers.Web3Provider(web3.currentProvider);
+ethereum.enable();
 var signer = provider.getSigner();
 var contract = new ethers.Contract(contractAddress, contractAbi, signer);
 
