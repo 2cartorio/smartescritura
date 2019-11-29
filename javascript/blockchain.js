@@ -20,7 +20,7 @@ function valorDepositado() {
     });
 }
 
-function executePayment() {
+function AssinarPagar() {
     var amount = document.frmPayment.amount.value;       
     if (amount<1000000000) {
         alert("You must pay a minimum of 1 gwei to the Contract");
@@ -43,13 +43,13 @@ function executePayment() {
             boxCommStatus.innerHTML = "Transaction executed.";
         })        
         .catch( (err) => {
-            console.error("executePayment - after tx being mint");
+            console.error("AssinarPagar - after tx being mint");
             console.error(err);
             boxCommStatus.innerHTML = "Algo saiu errado: " + err.message;
         })
     })
     .catch( (err) => {
-        console.error("executePayment - tx has been sent");
+        console.error("AssinarPagar - tx has been sent");
         console.error(err);
         boxCommStatus.innerHTML = "Something went wrong: " + err.message;
     })
