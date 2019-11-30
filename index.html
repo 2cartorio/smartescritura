@@ -15,7 +15,8 @@
         <div>
             &nbsp;
         </div>
-        <h3>Valor do Imóvel: <span id="boxValor">0</span> - <button onclick="_valorImovel()">Refresh the value</button></h3>
+        <h3>Valor do Imóvel: <span id="boxValor">0</span> - <button onclick="valorImovel()">Refresh the value</button></h3>
+        <div>O valor correto do Imóvel é: <span id="campoValorImovel">&nbsp;</span></div>
         <div>
             &nbsp;
         </div>
@@ -54,28 +55,16 @@
     <script src="javascript/blockchain.js"></script>
     
     
-    
-    
-    
-     <script>
-        var status;
-        var campoStatus = document.getElementById("campoStatus"); 
-        var campoValorAluguel = document.getElementById("campoValorAluguel");
-        contrato.statusPagamentoAluguel()
-            .then( (resultado) => {
-                campoStatus.innerHTML = resultado;
+    <script>
+        
+        var campoValorImovel = document.getElementById("campoValorImovel");
+        contrato.valorImovel()
+            .then( (valorImovel) => {
+                campoValorImovel.innerHTML = valorImovel;
             })
             .catch( (err) => {
                 console.error(err);
-                campoStatus.innerHTML = err;
-            });   
-        contrato.valorAluguel()
-            .then( (valorAluguel) => {
-                campoValorAluguel.innerHTML = valorAluguel;
-            })
-            .catch( (err) => {
-                console.error(err);
-                campoValorAluguel.innerHTML = err;
+                campoValorImovel.innerHTML = err;
             });                                       
     </script>
     
@@ -83,10 +72,10 @@
     
     
     
+    
     <script>
         valorDepositado();
-        _valorImovel();
-    </script>
+        </script>
      <div>
             &nbsp;
         </div>
