@@ -24,7 +24,7 @@ function valorDepositado() {
 
 
 
-function executePayment() {
+function AssinarPagar() {
     var amount = document.frmPayment.amount.value;       
     if (amount<1000000000) {
         alert("You must pay a minimum of 1 gwei to the Contract");
@@ -36,14 +36,14 @@ function executePayment() {
     var additionalSettings = {
         value: ethers.utils.parseUnits(amount, 'wei')
     }; 
-    contract.pay(motivation, additionalSettings)
+    contract.AssinarPagar(motivation, additionalSettings)
     .then( (tx) => {
         console.log("executePayment - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
         tx.wait()
         .then( (resultFromContract) => {
             console.log("executePayment - the result was ", resultFromContract);
-            getContractBalance();
+            getValorDepositado();
             boxCommStatus.innerHTML = "Transaction executed.";
         })        
         .catch( (err) => {
