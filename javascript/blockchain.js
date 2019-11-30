@@ -22,12 +22,12 @@ function valorDepositado() {
 }
 
 
-function valorImovel() {    
+function _valorImovel() {    
     var boxValor = document.getElementById("boxValor");
-    console.log("valorImovel - submitting the request");     
-    contract.valorImovel()
+    console.log("_valorImovel - submitting the request");     
+    contract._valorImovel()
     .then( (resultFromContract) => {
-        console.log("valorImovel - result is", resultFromContract);
+        console.log("_valorImovel - result is", resultFromContract);
         boxValor.innerHTML = resultFromContract;
     })
     .catch( (err) => {
