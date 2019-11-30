@@ -24,24 +24,24 @@ function valorDepositado() {
 function executePayment() {
     var amount = document.frmPayment.amount.value;       
     if (amount<1000000000) {
-        alert("You must pay a minimum of 1 gwei to the Contract");
+        alert("Você deve pagar, no mínimo, 1 gwei para a Smart Escritura");
         return false;
     }
     var motivation = document.frmPayment.motivation.value;
     var boxCommStatus = document.getElementById("boxCommStatus");
-    boxCommStatus.innerHTML = "Sending transaction...";
+    boxCommStatus.innerHTML = "Enviando transação...";
     var additionalSettings = {
         value: ethers.utils.parseUnits(amount, 'wei')
     }; 
     contract.AssinarPagar(motivation, additionalSettings)
     .then( (tx) => {
         console.log("executePayment - Transaction ", tx);   
-        boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
+        boxCommStatus.innerHTML = "Transação enviada! Aguardando resultado...";
         tx.wait()
         .then( (resultFromContract) => {
             console.log("executePayment - the result was ", resultFromContract);
             valorDepositado();
-            boxCommStatus.innerHTML = "Transaction executed.";
+            boxCommStatus.innerHTML = "Transação executada!";
         })        
         .catch( (err) => {
             console.error("executePayment - after tx being mint");
@@ -52,7 +52,7 @@ function executePayment() {
     .catch( (err) => {
         console.error("executePayment - tx has been sent");
         console.error(err);
-        boxCommStatus.innerHTML = "Something went wrong: " + err.message;
+        boxCommStatus.innerHTML = "Algo deu errado: " + err.message;
     })
     
 }
