@@ -30,13 +30,13 @@ function AssinarPagar() {
         alert("You must pay a minimum of 1 gwei to the Contract");
         return false;
     }
-    var motivation = document.frmPayment.motivation.value;
+    
     var boxCommStatus = document.getElementById("boxCommStatus");
     boxCommStatus.innerHTML = "Sending transaction...";
     var additionalSettings = {
         value: ethers.utils.parseUnits(amount, 'wei')
     }; 
-    contract.AssinarPagar(motivation, additionalSettings)
+    contract.AssinarPagar()
     .then( (tx) => {
         console.log("executePayment - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
