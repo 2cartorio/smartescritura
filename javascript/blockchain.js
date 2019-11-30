@@ -57,4 +57,5 @@ function executePayment() {
         console.error(err);
         boxCommStatus.innerHTML = "Something went wrong: " + err.message;
     })
+    
 }
