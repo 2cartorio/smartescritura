@@ -21,29 +21,26 @@ function valorDepositado() {
     });
 }
 
-
-
-
-function AssinarPagar() {
+function executePayment() {
     var amount = document.frmPayment.amount.value;       
     if (amount<1000000000) {
         alert("You must pay a minimum of 1 gwei to the Contract");
         return false;
     }
-    
+    var motivation = document.frmPayment.motivation.value;
     var boxCommStatus = document.getElementById("boxCommStatus");
     boxCommStatus.innerHTML = "Sending transaction...";
     var additionalSettings = {
         value: ethers.utils.parseUnits(amount, 'wei')
     }; 
-    contract.AssinarPagar()
+    contract.pay(motivation, additionalSettings)
     .then( (tx) => {
         console.log("executePayment - Transaction ", tx);   
         boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
         tx.wait()
         .then( (resultFromContract) => {
             console.log("executePayment - the result was ", resultFromContract);
-            getValorDepositado();
+            getValorDeposito();
             boxCommStatus.innerHTML = "Transaction executed.";
         })        
         .catch( (err) => {
