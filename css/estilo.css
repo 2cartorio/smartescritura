@@ -1,0 +1,36 @@
+body{
+   background: #f1f1f1;
+   color: #555;
+}
+.corpo{
+    position: relative;
+    width: 1000px;
+    left: 100%;
+    margin-left: -500px;
+    margin-top: 150px;
+}
+
+.conteudo{
+    display: table;
+}
+.imagem{
+    display: table-cell;
+    
+}
+.texto{
+    display: table-cell;
+    float: left;
+    width: 300px;
+}
+
+h1, h2, h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+}
+
+h1 {
+    font-weight: bold;
+}
+
+span {
+    font-weight: bold;
+}
