@@ -1,5 +1,4 @@
 var contractAbi = [
-	
 	{
 		"constant": false,
 		"inputs": [],
@@ -11,9 +10,21 @@ var contractAbi = [
 	},
 	{
 		"constant": false,
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_motivation",
+				"type": "string"
+			}
+		],
 		"name": "AssinarPagar",
-		"outputs": [],
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "function"
@@ -247,6 +258,21 @@ var contractAbi = [
 		"constant": true,
 		"inputs": [],
 		"name": "matriculaImovel",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "motivation",
 		"outputs": [
 			{
 				"internalType": "string",
