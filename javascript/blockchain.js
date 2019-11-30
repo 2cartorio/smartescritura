@@ -40,7 +40,7 @@ function executePayment() {
         tx.wait()
         .then( (resultFromContract) => {
             console.log("executePayment - the result was ", resultFromContract);
-            getValorDeposito();
+            valorDepositado();
             boxCommStatus.innerHTML = "Transaction executed.";
         })        
         .catch( (err) => {
