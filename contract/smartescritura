@@ -19,6 +19,7 @@ contract Compra_E_Venda {
     bool public statusAssinadaVendedor;
     bool public statusEscrituraDeclaradaIncompleta;
     bool public statusEscrituraLavrada;
+    string public motivation;
     
     constructor(
         string memory _tabeliao,
@@ -55,11 +56,14 @@ contract Compra_E_Venda {
         
     }
     
-    function AssinarPagar() payable public {
+    function AssinarPagar(string memory _motivation) public payable returns(bool) {
+        motivation = _motivation;
         require(msg.sender == enderecoComprador, "Somente comprador pode efetuar o pagamento e assinar");
         require(msg.value >= valorImovel, "Valor insuficiente");
         statusValorPagoAssinadaComprador = true;
     }
+    
+   
     
     function Assinar() payable public {
         require(msg.sender == enderecoVendedor, "Somente vendedor pode assinar");
