@@ -52,6 +52,37 @@
     </script>
     <script src="javascript/abi.js"></script>
     <script src="javascript/blockchain.js"></script>
+    
+    
+    
+    
+    
+     <script>
+        var status;
+        var campoStatus = document.getElementById("campoStatus"); 
+        var campoValorAluguel = document.getElementById("campoValorAluguel");
+        contrato.statusPagamentoAluguel()
+            .then( (resultado) => {
+                campoStatus.innerHTML = resultado;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoStatus.innerHTML = err;
+            });   
+        contrato.valorAluguel()
+            .then( (valorAluguel) => {
+                campoValorAluguel.innerHTML = valorAluguel;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoValorAluguel.innerHTML = err;
+            });                                       
+    </script>
+    
+    
+    
+    
+    
     <script>
         valorDepositado();
         _valorImovel();
