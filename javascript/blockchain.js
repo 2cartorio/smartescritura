@@ -22,13 +22,13 @@ function valorDepositado() {
 }
 
 
-function _valorImovel() {    
-    var boxValor = document.getElementById("boxValor");
-    console.log("_valorImovel - submitting the request");     
-    contract._valorImovel()
+function valorImovel() {    
+    var campoValorImovel = document.getElementById("CampoValorImovel");
+    console.log("valorImovel - submitting the request");     
+    contract.valorImovel()
     .then( (resultFromContract) => {
-        console.log("_valorImovel - result is", resultFromContract);
-        boxValor.innerHTML = resultFromContract;
+        console.log("valorImovel - result is", resultFromContract);
+        campoValorImovel.innerHTML = resultFromContract;
     })
     .catch( (err) => {
         console.error(err);
