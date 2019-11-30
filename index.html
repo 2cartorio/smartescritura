@@ -10,18 +10,7 @@
     <h1>SMART ESCRITURA - COMPRA E VENDA</h1>
     <h3>Saldo de depósito: <span id="boxBalance">0</span> - <button onclick="valorDepositado()">Refresh the value</button></h3>
     <hr>
-    <form name="frmPayment" id="frmPayment" action="#" method="get" onsubmit="AssinarPagar(); return false;">
-        
-        <div>
-            &nbsp;
-        </div>
-        <h3>Valor do Imóvel: <span id="boxValor">0</span> - <button onclick="valorImovel()">Refresh the value</button></h3>
-        <div>O valor correto do Imóvel é: <span id="campoValorImovel">&nbsp;</span></div>
-        <div>
-            &nbsp;
-        </div>
-            
-        
+    <form name="frmPayment" id="frmPayment" action="#" method="get" onsubmit="executePayment(); return false;">
         <div>
             <label for="motivation">What's your motivation to make this payment: </label>
         </div>
@@ -29,7 +18,7 @@
             <input type="text" name="motivation" id="motivation">
         </div>
         <div>
-            <label for="amount">Valor a ser depositado no contrato: </label>
+            <label for="amount">Amount to pay to the Contract: </label>
         </div>
         <div>
             <input type="number" name="amount" id="amount" value="1000000000000000"> in wei
@@ -38,7 +27,7 @@
             &nbsp;
         </div>
         <div>
-            <button type="submit">Confirmar o depósito e assinar escritura</button>
+            <button type="submit">Confirm the payment</button>
         </div>
         <div>
             &nbsp;
@@ -54,38 +43,11 @@
     <script src="javascript/abi.js"></script>
     <script src="javascript/blockchain.js"></script>
     
-   
-    
-    
-    
-    
-    
     <script>
         valorDepositado();
         </script>
-     <div>
-            &nbsp;
-        </div>
+     
     
-    <div>A situação de pagamento é: <span id="campostatusValorPagoAssinadaComprador">&nbsp;</span></div>
-    <div>O valor da compra é: <span id="campoValorImovel">&nbsp;</span></div>
-    
-    
-     <div>
-            &nbsp;
-        </div>
-    
-    <div>
-            <button type="Assinar">Assinar</button>
-    </div>
-    
-        
-         <div>
-            &nbsp;
-        </div>
-        
-        
-        
 </body>
 </html>
 
