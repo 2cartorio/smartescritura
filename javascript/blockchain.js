@@ -22,6 +22,39 @@ function valorDepositado() {
 }
 
 
-    
-    
+
+
+function executePayment() {
+    var amount = document.frmPayment.amount.value;       
+    if (amount<1000000000) {
+        alert("You must pay a minimum of 1 gwei to the Contract");
+        return false;
+    }
+    var motivation = document.frmPayment.motivation.value;
+    var boxCommStatus = document.getElementById("boxCommStatus");
+    boxCommStatus.innerHTML = "Sending transaction...";
+    var additionalSettings = {
+        value: ethers.utils.parseUnits(amount, 'wei')
+    }; 
+    contract.pay(motivation, additionalSettings)
+    .then( (tx) => {
+        console.log("executePayment - Transaction ", tx);   
+        boxCommStatus.innerHTML = "Transaction sent. Waiting for the result...";
+        tx.wait()
+        .then( (resultFromContract) => {
+            console.log("executePayment - the result was ", resultFromContract);
+            getContractBalance();
+            boxCommStatus.innerHTML = "Transaction executed.";
+        })        
+        .catch( (err) => {
+            console.error("executePayment - after tx being mint");
+            console.error(err);
+            boxCommStatus.innerHTML = "Algo saiu errado: " + err.message;
+        })
+    })
+    .catch( (err) => {
+        console.error("executePayment - tx has been sent");
+        console.error(err);
+        boxCommStatus.innerHTML = "Something went wrong: " + err.message;
+    })
 }
