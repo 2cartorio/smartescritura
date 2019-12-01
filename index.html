@@ -76,8 +76,23 @@
             &nbsp;
         </div>
     </form>
-<script>
+
+ 
+
+
+
+ <script>
+        var status;
+        var campoStatus = document.getElementById("campoStatus"); 
         var campoValor = document.getElementById("campoValor");
+        contract.statusAssinadaVendedor()
+            .then( (resultado) => {
+                campoStatus.innerHTML = resultado;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoStatus.innerHTML = err;
+            });   
         contract.valorImovel()
             .then( (valorImovel) => {
                 campoValor.innerHTML = valorImovel;
@@ -86,11 +101,7 @@
                 console.error(err);
                 campoValor.innerHTML = err;
             });                                       
-    </script>
- 
-
-
-
+    </script>                                 
 
 
 
@@ -119,7 +130,7 @@
         valorImovel();
         </script>
      
-    
+</script>    
 </body>
 </html>
 
