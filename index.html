@@ -18,7 +18,8 @@
 
 
     <h3>Saldo de depósito: <span id="boxBalance">0</span> - <button onclick="valorDepositado()">Recarregar</button></h3>
-    <h3>Valor do Imóvel: <span id="boxValor">0</span> - <button onclick="valorImovel()">Recarregar</button></h3>
+    <h3>Valor do Imóvel: <span id="campoValor">0</span> - <button onclick="valorImovel()">Recarregar</button></h3>
+    <div>O valor do aluguel é: <span id="campoValor">&nbsp;</span></div>
     <hr>
     
     <h3>CAMPO DO COMPRADOR</h3>
@@ -75,6 +76,17 @@
             &nbsp;
         </div>
     </form>
+<script>
+        var campoValor = document.getElementById("campoValor");
+        contract.valorImovel()
+            .then( (valorImovel) => {
+                campoValor.innerHTML = valorImovel;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoValor.innerHTML = err;
+            });                                       
+    </script>
  
 
 
