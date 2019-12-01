@@ -57,18 +57,18 @@
 
     
     <div>A situação de assinatura vendedor é: <span id="campoStatus">&nbsp;</span></div>
-    <div>O valor do imovel é: <span id="campoValorAluguel">&nbsp;</span></div>
+    <div>O valor do imovel é: <span id="campoValorImovel">&nbsp;</span></div>
 
  <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="registrarMudancaStatus(); return false;">
         <div>
-            <label for="txtStatusPagamentoAluguel">Informe o novo Status: </label>
-            <input type="text" name="txtStatusPagamentoAluguel" id="txtStatusPagamentoAluguel" maxlength="8">
+            <label for="txtStatusAssinadaVendedor">Digite "concordo" para assinar a Smart Escritura: </label>
+            <input type="text" name="txtStatusAssinadaVendedor" id="txtStatusAssinadaVendedor" maxlength="8">
         </div>
         <div>
             &nbsp;
         </div>
         <div>
-            <button type="submit">Registrar Novo Status</button>
+            <button type="submit">Assinar</button>
         </div>
         <div><br><hr></div>
         <div id="caixaStatusTx">
@@ -79,8 +79,8 @@
 <script>
         var status;
         var campoStatus = document.getElementById("campoStatus"); 
-        var campoValorAluguel = document.getElementById("campoValorAluguel");
-        contrato.statusPagamentoAluguel()
+        var campoValorImovel = document.getElementById("campoValorImovel");
+        contrato.statusAssinadaVendedor()
             .then( (resultado) => {
                 campoStatus.innerHTML = resultado;
             })
@@ -88,13 +88,13 @@
                 console.error(err);
                 campoStatus.innerHTML = err;
             });   
-        contrato.valorAluguel()
-            .then( (valorAluguel) => {
-                campoValorAluguel.innerHTML = valorAluguel;
+        contrato.valorImovel()
+            .then( (valorImovel) => {
+                campoValorImovel.innerHTML = valorImovel;
             })
             .catch( (err) => {
                 console.error(err);
-                campoValorAluguel.innerHTML = err;
+                campoValorimovel.innerHTML = err;
             });                                       
     </script>
 
