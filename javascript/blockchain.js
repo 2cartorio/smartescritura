@@ -58,12 +58,12 @@ function executePayment() {
     
     
    function valorImovel() {    
-    var boxBalance = document.getElementById("boxBalance");
+    var campoValor = document.getElementById("campoValor");
     console.log("valorImovel - submitting the request");     
     contract.valorImovel()
     .then( (resultFromContract) => {
         console.log("valorImovel - result is", resultFromContract);
-        boxBalance.innerHTML = resultFromContract;
+        campoValor.innerHTML = resultFromContract;
     })
     .catch( (err) => {
         console.error(err);
