@@ -1,53 +1,5 @@
 var contractAbi = [
 	{
-		"constant": false,
-		"inputs": [],
-		"name": "Assinar",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_motivation",
-				"type": "string"
-			}
-		],
-		"name": "AssinarPagar",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "declaraIncompleta",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "lavrarEscritura",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "string",
@@ -120,33 +72,39 @@ var contractAbi = [
 		"type": "constructor"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "cartorioRegistro",
-		"outputs": [
+		"constant": false,
+		"inputs": [
 			{
 				"internalType": "string",
-				"name": "",
+				"name": "_descricao",
 				"type": "string"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "Assinar",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "comprador",
-		"outputs": [
+		"constant": false,
+		"inputs": [
 			{
 				"internalType": "string",
-				"name": "",
+				"name": "_motivation",
 				"type": "string"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "AssinarPagar",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -182,6 +140,45 @@ var contractAbi = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "cartorioRegistro",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "comprador",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "declaraIncompleta",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "descricaoImovel",
 		"outputs": [
 			{
@@ -212,6 +209,21 @@ var contractAbi = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "enderecoVendedor",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "enderecotabeliao",
 		"outputs": [
 			{
@@ -225,18 +237,12 @@ var contractAbi = [
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [],
-		"name": "enderecoVendedor",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
-			}
-		],
+		"name": "lavrarEscritura",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
