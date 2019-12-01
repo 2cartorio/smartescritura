@@ -65,16 +65,19 @@ contract Compra_E_Venda {
     
    
     
-    function Assinar() payable public {
+    function Assinar(string memory _descricao)  payable public {
         require(msg.sender == enderecoVendedor, "Somente vendedor pode assinar");
+        if (keccak256(abi.encodePacked(_descricao)) == keccak256("concordo")) {
         statusAssinadaVendedor = true;
-        
+        }
     }
     
     
     function valorDepositado() public view returns(uint256) {
         return address(this).balance;
+        
     }
+   
    
     function declaraIncompleta() public {
         require(msg.sender == enderecotabeliao, "Somente o tabeliao pode declarar a escritura incompleta");
