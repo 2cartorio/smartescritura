@@ -55,4 +55,36 @@ function executePayment() {
         boxCommStatus.innerHTML = "Algo deu errado: " + err.message;
     })
     
+    
+    
+    
+    
+    
+    
+    
+        var status;
+        var campoStatus = document.getElementById("campoStatus"); 
+        var campoValorImovel = document.getElementById("campoValorImovel");
+        contrato.statusAssinadaVendedor()
+            .then( (resultado) => {
+                campoStatus.innerHTML = resultado;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoStatus.innerHTML = err;
+            });   
+        contrato.valorImovel()
+            .then( (valorImovel) => {
+                campoValorImovel.innerHTML = valorImovel;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoValorimovel.innerHTML = err;
+            });                              
+    
+    
+    
+    
+    
+    
 }
