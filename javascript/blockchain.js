@@ -57,13 +57,13 @@ function executePayment() {
     
     
     
-    function valorImovel() {    
-    var campoValorImovel = document.getElementById("campoValorImovel");
+   function valorImovel() {    
+    var boxBalance = document.getElementById("boxBalance");
     console.log("valorImovel - submitting the request");     
     contract.valorImovel()
     .then( (resultFromContract) => {
         console.log("valorImovel - result is", resultFromContract);
-        campoValorImovel.innerHTML = resultFromContract;
+        boxBalance.innerHTML = resultFromContract;
     })
     .catch( (err) => {
         console.error(err);
@@ -73,7 +73,6 @@ function executePayment() {
         document.location = "index.html";
     });
 }
-    
     
          
         
