@@ -47,7 +47,81 @@
             (Status da Blockchain)
         </div>
     </form>
-    <hr>
+   
+
+
+
+
+<hr>
+    <h3>CAMPO DO VENDEDOR</h3>
+
+    
+    <div>A situação de assinatura vendedor é: <span id="campoStatus">&nbsp;</span></div>
+    <div>O valor do imovel é: <span id="campoValorAluguel">&nbsp;</span></div>
+
+ <form action="#" method="get" id="frmStatus" name="frmStatus" onsubmit="registrarMudancaStatus(); return false;">
+        <div>
+            <label for="txtStatusPagamentoAluguel">Informe o novo Status: </label>
+            <input type="text" name="txtStatusPagamentoAluguel" id="txtStatusPagamentoAluguel" maxlength="8">
+        </div>
+        <div>
+            &nbsp;
+        </div>
+        <div>
+            <button type="submit">Registrar Novo Status</button>
+        </div>
+        <div><br><hr></div>
+        <div id="caixaStatusTx">
+            &nbsp;
+        </div>
+    </form>
+
+<script>
+        var status;
+        var campoStatus = document.getElementById("campoStatus"); 
+        var campoValorAluguel = document.getElementById("campoValorAluguel");
+        contrato.statusPagamentoAluguel()
+            .then( (resultado) => {
+                campoStatus.innerHTML = resultado;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoStatus.innerHTML = err;
+            });   
+        contrato.valorAluguel()
+            .then( (valorAluguel) => {
+                campoValorAluguel.innerHTML = valorAluguel;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoValorAluguel.innerHTML = err;
+            });                                       
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script charset="utf-8"
         src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
         type="text/javascript">
