@@ -83,6 +83,29 @@
 
 
 
+<script>
+        var status;
+        var campoStatus = document.getElementById("campoStatus"); 
+        var campoValorImovel = document.getElementById("campoValorImovel");
+        contrato.statusAssinadaVendedor()
+            .then( (resultado) => {
+                campoStatus.innerHTML = resultado;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoStatus.innerHTML = err;
+            });   
+        contrato.valorImovel()
+            .then( (valorAluguel) => {
+                campoValorImovel.innerHTML = valorAluguel;
+            })
+            .catch( (err) => {
+                console.error(err);
+                campoValorImovel.innerHTML = err;
+            });                                       
+    </script>
+
+
 
 
 
@@ -113,6 +136,7 @@
     <script src="javascript/blockchain.js"></script>
     
     <script>
+        statusAssinadaVendedor();
         valorDepositado();
         valorImovel();
         </script>
