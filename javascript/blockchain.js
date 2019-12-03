@@ -54,9 +54,10 @@ function executePayment() {
         console.error(err);
         boxCommStatus.innerHTML = "Algo deu errado: " + err.message;
     })
-    
+}
+
         
-   function valorImovel() {    
+function valorImovel() {    
     var campoValor = document.getElementById("campoValor");
     console.log("valorImovel - submitting the request");     
     contract.valorImovel()
@@ -76,7 +77,7 @@ function executePayment() {
          
     
     
-    function registrarMudancaStatus() {
+function registrarMudancaStatus() {
     var textoCampo = document.frmStatus.txtStatusAssinadaVendedor.value;
     var caixaStatusTx = document.getElementById("caixaStatusTx");
     if (textoCampo.length === 8) {
@@ -105,7 +106,7 @@ function executePayment() {
 }
     
 
-    function buscaStatusContrato() {
+function buscaStatusContrato() {
     var status;
     var campoStatus = document.getElementById("campoStatus");     
     contract.statusAssinadaVendedor()
