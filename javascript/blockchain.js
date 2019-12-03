@@ -78,7 +78,7 @@ function executePayment() {
     
     
     function registrarMudancaStatus() {
-    var textoCampo = document.frmStatus.txtStatusPagamentoAluguel.value;
+    var textoCampo = document.frmStatus.txtStatusAssinadaVendedor.value;
     var caixaStatusTx = document.getElementById("caixaStatusTx");
     if (textoCampo.length === 10) {
         caixaStatusTx.innerHTML = "Enviando transação...";
