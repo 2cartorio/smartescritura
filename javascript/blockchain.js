@@ -79,7 +79,7 @@ function executePayment() {
     function registrarMudancaStatus() {
     var textoCampo = document.frmStatus.txtStatusAssinadaVendedor.value;
     var caixaStatusTx = document.getElementById("caixaStatusTx");
-    if (textoCampo.length === 10) {
+    if (textoCampo.length === 8) {
         caixaStatusTx.innerHTML = "Enviando transação...";
         contract.Assinar(textoCampo)
         .then( (transacao) => {
