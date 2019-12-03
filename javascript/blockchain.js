@@ -120,10 +120,7 @@ function executePayment() {
     
     
     
-    
-    
-    
-    
+      
         
     
 }
