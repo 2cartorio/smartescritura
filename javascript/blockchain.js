@@ -55,8 +55,7 @@ function executePayment() {
         boxCommStatus.innerHTML = "Algo deu errado: " + err.message;
     })
     
-    
-    
+        
    function valorImovel() {    
     var campoValor = document.getElementById("campoValor");
     console.log("valorImovel - submitting the request");     
