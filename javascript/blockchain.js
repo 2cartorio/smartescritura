@@ -118,10 +118,3 @@ function buscaStatusContrato() {
         campoStatus.innerHTML = err;
     });
 }
-    
-    
-    
-      
-        
-    
-}
